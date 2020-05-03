@@ -88,3 +88,28 @@ arrange(tab, desc(count))
 9     so     2
 10  that     2
 # ... with 61 more rows
+
+# To detect and list the individual sentences of the text, we use the tokenize_sentences() function
+sentences <- tokenize_sentences(text)
+sentences
+[[1]]
+[1] "Now, I understand that because it's an election season expectations for what we will achieve this year are low."
+[2] "But, Mister Speaker, I appreciate the constructive approach that you and other leaders took at the end of last year to pass a budget and make tax cuts permanent for working families."
+[3] "So I hope we can work together this year on some bipartisan priorities like criminal justice reform and helping people who are battling prescription drug abuse and heroin abuse."
+[4] "So, who knows, we might surprise the cynics again"
+
+# Pass the sentences split from the paragraph into tokenize_words() to treat eat sentence as its
+# own document
+sentence_words <- tokenize_words(sentences([[1]])
+sentence_words
+             
+# Take the length of each sentence individually to find out how many words are in each
+length(sentence_words[[1]])
+length(sentence_words[[2]])
+length(sentence_words[[3]])
+length(sentence_words[[4]])
+# Alternatively, use sapply(), which applies its second argument to every element of the first argument,
+# to accomplish the same thing in one line
+sapply(sentence_words, length)
+[1] 19 32 29  9
+                                 
